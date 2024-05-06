@@ -18,10 +18,22 @@
         z-index: -1;
         background-size: cover;
         background-image: linear-gradient(
-            rgba(0, 213, 255, 0.3),
-            rgba(0, 213, 255, 0.3)
+            rgba(127, 57, 123, 0.2),
+            rgba(64, 66, 67, 0.2)
           ),
-          url(./assets/background.jpeg);
+          url(./assets/side-background.jpg);
+      }
+      .background-side {
+        background-image: url(./assets/side-background.jpg);
+        background-size: cover;
+      }
+      .input {
+        display: flex;
+        flex-direction: column;
+
+        > input {
+          border-bottom: 1px solid black;
+        }
       }
     </style>
   </head>
@@ -29,10 +41,12 @@
     <div class="w-full h-full fixed top-0 background"></div>
 
     <div class="w-full h-full flex items-center justify-center fixed">
-      <section class="w-full px-8 flex shadow-2xl">
-        <div class="w-1/2 p-12 side-column flex gap-8 flex-col">
-          <h1 class="text-4xl">Formulario Test</h1>
-          <p>
+      <section class="flex shadow-2xl max-w-4xl">
+        <div
+          class="w-1/2 p-12 side-column flex justify-center gap-8 flex-col background-side"
+        >
+          <h1 class="text-7xl text-white">Hola!</h1>
+          <p class="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
             voluptatem quam ullam error nostrum.
           </p>
@@ -102,10 +116,141 @@
             </button>
           </div>
         </div>
+
         <div class="w-1/2 p-16 bg-white">
-          <form action="/" method="get"></form>
+          <form
+            class="flex gap-8 flex-col"
+            action="/"
+            method="get"
+            id="formulario-registrar"
+          >
+            <h2 class="text-4xl">Register</h2>
+
+            <div class="grupoForm">
+              <label class="text-lg" for="nombre-input">Nombre</label>
+
+              <div class="input-container" id="nombre-container">
+                <input
+                  required
+                  class="border-solid border-black border-b-[1px]"
+                  type="text"
+                  id="nombre-input"
+                  minlength="3"
+                  placeholder="Pepito"
+                />
+                <span class="error-icon -ml-6 hidden text-red-500">
+                  <i class="fa-solid fa-circle-exclamation"></i
+                ></span>
+                <span class="success-icon -ml-6 hidden text-green-500">
+                  <i class="fa-solid fa-circle-check"></i
+                ></span>
+              </div>
+
+              <div class="error"></div>
+            </div>
+
+            <div class="grupoForm">
+              <label class="text-lg" for="apellido-input">Apellido</label>
+
+              <div class="input-container" id="apellido-container">
+                <input
+                  required
+                  class="border-solid border-black border-b-[1px]"
+                  type="text"
+                  id="apellido-input"
+                  minlength="8"
+                  placeholder="Juan Perez"
+                />
+                <span class="error-icon -ml-6 hidden text-red-500">
+                  <i class="fa-solid fa-circle-exclamation"></i
+                ></span>
+                <span class="success-icon -ml-6 hidden text-green-500">
+                  <i class="fa-solid fa-circle-check"></i
+                ></span>
+              </div>
+
+              <div class="error"></div>
+            </div>
+
+            <div class="grupoForm">
+              <label class="text-lg" for="email-input">Email</label>
+
+              <div class="input-container" id="email-container">
+                <input
+                  required
+                  class="border-solid border-black border-b-[1px]"
+                  type="email"
+                  id="email-input"
+                  minlength="8"
+                  placeholder="pepito@gmail.com"
+                />
+                <span class="error-icon -ml-6 hidden text-red-500">
+                  <i class="fa-solid fa-circle-exclamation"></i
+                ></span>
+                <span class="success-icon -ml-6 hidden text-green-500">
+                  <i class="fa-solid fa-circle-check"></i
+                ></span>
+              </div>
+
+              <div class="error"></div>
+            </div>
+
+            <div class="grupoForm">
+              <label class="text-lg" for="password-input">Contraseña</label>
+
+              <div class="input-container" id="password-container">
+                <input
+                  required
+                  class="border-solid border-black border-b-[1px]"
+                  type="password"
+                  id="password-input"
+                  minlength="8"
+                />
+                <span class="error-icon -ml-6 hidden text-red-500">
+                  <i class="fa-solid fa-circle-exclamation"></i
+                ></span>
+                <span class="success-icon -ml-6 hidden text-green-500">
+                  <i class="fa-solid fa-circle-check"></i
+                ></span>
+              </div>
+
+              <div class="error"></div>
+            </div>
+
+            <div class="grupoForm">
+              <label class="text-lg" for="passwordRepeat-input"
+                >Repetir contraseña</label
+              >
+              <div class="input-container" id="passwordRepeat-container">
+                <input
+                  required
+                  class="border-solid border-black border-b-[1px]"
+                  type="password"
+                  id="passwordRepeat-input"
+                  minlength="8"
+                />
+                <span class="error-icon -ml-6 hidden text-red-500">
+                  <i class="fa-solid fa-circle-exclamation"></i
+                ></span>
+                <span class="success-icon -ml-6 hidden text-green-500">
+                  <i class="fa-solid fa-circle-check"></i
+                ></span>
+              </div>
+
+              <div class="error"></div>
+            </div>
+
+            <button
+              type="submit"
+              class="bg-blue-500 text-white rounded-xl py-2 max-w-32"
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </section>
     </div>
   </body>
+
+  <script src="./scripts/register.js"></script>
 </html>
